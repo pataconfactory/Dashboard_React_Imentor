@@ -1,59 +1,40 @@
-import React, {Component} from 'react';
-import Products  from './Products';
+import React, {useEffect, useState} from 'react';
+function ProductsInDb (){
 
-
-class ProductsInDb extends Component{
-    constructor(){
-        super()
-        this.state={
-            productsList: []
-        }   
-    }
-
-
-    componentDidMount()
-    {
-
+    const [products, setProducts ] = useState([])
+    useEffect( ()=> {
         fetch('http://localhost:3001/api/products')
         .then(respuesta =>{
-            console.log(respuesta)
-        return respuesta.json()
-        
+            return respuesta.json()
         })
         .then(products =>{
-        console.log(products)
-        this.setState({productsList: products.products})
-        console.log(products.count)
+        setProducts(products.products)
         })
         .catch(error => console.log(error))
-    }
+    }, [])
 
 
-    render(){
-        return (
-            <React.Fragment>
-                    {/*<!-- Categories in DB -->*/}
-                    <div>					
-                        <div className="card shadow mb-4">
-                            <div className="card-header py-2 bg-primary ">
-                                <h6 className="m-0 font-weight-bold">Lista de Productos</h6>
-                            </div>
-                            <div>
-                                <div className="row hover-shadow">
-                                    {
-                                        this.state.productsList.map((product,index)=>{
-                                            return  <Products  {...product}  key={index} />
-                                        })
-                                    }
+    return (
+        <>
+                {/*<!-- Categories in DB -->*/}
+                <div className="container-productos-existentes">						
+
+                        <div className="container-product ">
+                        <div className="miniatura">
+                                {
+                                    products ? products.map ((product,i)=> 
+                                    <div className = "product-details" ><h3 key={product.name + i}>{product.name}</h3>
+                                    <p>{product.description} </p>
+                                     <img className="w-100" src={product.imagen_del_producto} alt="I Mentor"/>
+                                    
+                                    </div>
+                                    
+                                ) : <p>No hay categorías disponibles</p>} 
                                 </div>
                             </div>
-                        </div>
-                    </div>
-               
-            </React.Fragment>
-        )
-    }
-    
+                            </div>
 
-}
-export default ProductsInDb;
+        </>
+    )
+    }
+    export default ProductsInDb;

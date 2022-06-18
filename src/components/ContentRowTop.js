@@ -8,7 +8,7 @@ import ProductsByCategory from './ProductsByCategory';
 function ContentRowTop(){
     return(
         <React.Fragment>
-			<div className='mainContent mw-100 mh-100'>
+			<div className='mainContent'>
 				{/*<!-- Content Row Top -->*/}
 				
 					{/*<!-- Content Row Products Totals-->*/}
@@ -32,7 +32,7 @@ function ContentRowTop(){
 					</div>
 
 					{/*<!--Products In Db-->*/}
-					<div>
+					<div className=''>
 					<ProductsInDb />
 					{/*<!--End Products In Db-->*/}
 					</div>

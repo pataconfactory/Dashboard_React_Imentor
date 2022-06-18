@@ -1,5 +1,4 @@
 import React, {useState, useEffect} from 'react';
-import Products  from './Products';
 
 function ProductsByCategory() { 
 const [ProductsByCategory, setProducts ] = useState('')
@@ -21,7 +20,7 @@ console.log(ProductsByCategory)
             <React.Fragment>
                     {/*<!-- Categories in DB -->*/}
                     <div className="">					
-                        <div className="card shadow mr-4">
+                        <div className="card shadow mr-4 height: 100px">
                             <div className="card-header py-2 bg-primary ">
                                 <h6 className="m-0 font-weight-bold">Productos por Categoría</h6>
                             </div>

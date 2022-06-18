@@ -1,5 +1,4 @@
 import React, {useState, useEffect} from 'react';
-import Products from './Products';
 
 function LastProductInDb(){
 
@@ -17,6 +16,7 @@ function LastProductInDb(){
     }, [] ) 
 
     console.log(lastProduct)
+    let img = lastProduct.imagen_del_producto;
     return (
         <>	
             <div className="card shadow w-50">
@@ -27,6 +27,7 @@ function LastProductInDb(){
                             <div className="card-body ">
                                 <h5 className='text-success'>{lastProduct.name}</h5> {' '}
                                 <p>{lastProduct.description} </p>
+                                <img className="w-100" src={lastProduct.imagen_del_producto} alt="I Mentor"/>
                             </div>
                         </div>
         </>

@@ -9,9 +9,9 @@ function TopBar(){
 					<ul className="navbar-nav ml-auto">
 						<div className=""></div>
 						{/*<!-- Nav Item - User Information -->*/}
-						<li className="nav-item dropdown no-arrow">
-							<a href="/" id="userDropdown">
-								<span className="text-gray-600 small">Hola Admin</span>
+						<li className="nav-item">
+							<a href="http://localhost:3001/" id="userDropdown">
+								<button className="btn-volver-app">Volver a la App</button>
 								
 							</a>
 						</li>
